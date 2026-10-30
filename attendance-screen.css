@@ -1,0 +1,78 @@
+﻿* { box-sizing: border-box; }
+html { min-height: 100%; }
+body.login-page { margin: 0; min-height: 100vh; min-height: 100dvh; height: auto; display: flex; flex-direction: column; font-family: "Segoe UI", Arial, sans-serif; color: #213951; background: url('images/fondo%20correos.png') center / cover fixed; }
+.login-box { width: min(460px, calc(100% - 32px)); margin: auto; padding: 24px 0; }
+.login-box-body { padding: 28px 32px 30px; background: rgba(250, 252, 255, .96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #213951; border: 1px solid rgba(255, 255, 255, .78); border-top: 4px solid #ffce32; border-radius: 12px; box-shadow: 0 22px 60px rgba(0, 26, 52, .34); }
+.attendance-brand { width: 178px; margin: 0 auto 20px; }
+.attendance-brand img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.attendance-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 2px; color: #65758a; text-align: center; margin: 0 0 7px; }
+.login-box-msg { font-size: 25px; line-height: 1.3; font-weight: 800; color: #123f6d; text-align: center; padding: 0; margin: 0 0 22px; letter-spacing: .7px; }
+.login-box-msg::after { content: ''; display: block; width: 76px; height: 4px; margin: 12px auto 0; border-radius: 2px; background: #ffce32; }
+.attendance-clock { text-align: center; padding: 14px 10px; margin: 0 0 22px; background: linear-gradient(135deg, #123f6d, #0c4f8a); border: 1px solid #123f6d; border-bottom: 3px solid #ffce32; border-radius: 8px; box-shadow: 0 7px 18px rgba(18, 63, 109, .2); }
+#date { margin: 0 0 10px; font-size: 17px; line-height: 1.5; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .3px; }
+#time { margin: 0; font-size: 42px; line-height: 1.15; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 3px; color: #fff; }
+.attendance-clock > span { display: block; margin-top: 6px; font-size: 11px; color: #dce8f5; }
+.attendance-code { margin: 0; }
+.attendance-code label { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.attendance-code .form-control { height: 48px; font-size: 16px; border: 1px solid #bdcbd9; border-radius: 7px; padding-left: 13px; padding-right: 38px; box-shadow: inset 0 1px 2px rgba(18, 63, 109, .04); }
+.attendance-code .form-control::placeholder { color: #8a96a3; font-size: 14px; }
+.attendance-code .form-control:focus { border-color: #235b91; box-shadow: 0 0 0 3px #235b911a; }
+.attendance-code .form-control-feedback { top: 29px; height: 48px; line-height: 48px; color: #788da3; }
+.attendance-actions { display: flex; gap: 12px; margin: 20px 0 0; }
+.attendance-actions::before, .attendance-actions::after { display: none; }
+.attendance-actions .action-column { flex: 1; min-width: 0; padding: 0; float: none; }
+.attendance-action { min-height: 62px; padding: 10px 5px; border-radius: 7px !important; font-size: 11px; font-weight: 700; letter-spacing: .35px; white-space: normal; box-shadow: 0 4px 10px rgba(12, 63, 112, .16); transition: background .15s, border-color .15s, box-shadow .15s, transform .15s; }
+.attendance-action i { display: block; font-size: 20px; margin-bottom: 6px; }
+.attendance-action.btn-success { background: #0c4f8a; border-color: #0c4f8a; color: #fff; }
+.attendance-action.btn-success:hover, .attendance-action.btn-success:focus { background: #0a3f70; border-color: #0a3f70; }
+.attendance-action.btn-danger { background: #168aad; border-color: #168aad; color: #fff; }
+.attendance-action.btn-danger:hover, .attendance-action.btn-danger:focus { background: #11758f; border-color: #11758f; color: #fff; }
+.attendance-action:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(12, 63, 112, .22); }
+.attendance-action:active { transform: translateY(0); box-shadow: 0 2px 5px rgba(12, 63, 112, .18); }
+.attendance-action:focus-visible { outline: 3px solid #d0ab38; outline-offset: 3px; }
+.login-box > .alert { width: 100%; margin: 12px 0 0; border-radius: 5px; padding: 12px 30px 12px 14px; }
+.login-box .result { font-size: 14px; }
+.main-footer { flex: 0 0 auto; margin: 0 !important; width: 100%; padding: 12px 20px; text-align: center; background: #072c4ee6; border-top: 1px solid #ffffff22; color: #bdccdc; font-size: 10px; line-height: 1.8; }
+.main-footer .pull-right { float: none !important; margin-bottom: 2px; }
+.main-footer strong, .main-footer b { font-weight: 400; }
+.main-footer strong { display: block; }
+.main-footer a { color: #dce7f3; }
+@media (max-height: 720px) {
+  .login-box { padding: 14px 0; }
+  .login-box-body { padding: 20px 28px; }
+  .attendance-brand { width: 145px; margin-bottom: 14px; }
+  .login-box-msg { font-size: 24px; margin-bottom: 15px; }
+  .attendance-clock { padding: 10px; margin-bottom: 16px; }
+  #time { font-size: 38px; }
+  .attendance-actions { margin-top: 16px; }
+  .main-footer { padding-top: 8px; padding-bottom: 8px; }
+}
+@media (max-width: 480px) {
+  .login-box-body { padding-left: 22px; padding-right: 22px; }
+  .attendance-actions { gap: 10px; }
+  .attendance-action { font-size: 10px; }
+  #date { font-size: 15px; }
+}
+/* Franja lateral institucional, inspirada en los colores del logo. */
+.attendance-stage { flex: 1 0 auto; position: relative; display: flex; align-items: center; isolation: isolate; }
+.postal-identity { position: absolute; inset: 0 auto 0 0; width: clamp(210px, 26vw, 360px); overflow: visible; z-index: -1; background: transparent; border: 0; }
+.postal-identity-shade { position: absolute; top: 0; bottom: 0; left: 0; width: 160%; background: linear-gradient(90deg, rgba(9, 48, 93, .25), rgba(9, 48, 93, .1) 55%, transparent); pointer-events: none; }
+.postal-identity-brand { position: absolute; top: 31%; left: 12%; width: 71%; max-width: 235px; }
+.postal-identity-brand img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 6px 24px #001b3420; }
+.postal-identity-brand p { color: #e1ecf7; font-size: 16px; font-style: italic; margin: 14px 0 0; text-align: center; letter-spacing: .4px; }
+.postal-ribbons { position: absolute; width: 120%; height: 18%; left: 0; bottom: 9%; opacity: .9; mask-image: linear-gradient(90deg, #000 65%, transparent); }
+.postal-ribbons, .postal-identity-shade { display: none; }
+.attendance-stage > .login-box { position: relative; }
+.attendance-stage > .postal-ribbons-right { left: auto; right: 0; width: clamp(252px, 31.2vw, 432px); transform: scaleX(-1); z-index: -1; pointer-events: none; }
+@media (min-width: 761px) and (max-width: 1100px) {
+  .attendance-stage { padding-left: 210px; }
+  .postal-identity { width: 210px; }
+}
+@media (max-width: 760px) {
+  .attendance-stage { padding-top: 0; }
+  .postal-identity { width: 100%; height: 100%; }
+  .postal-identity-shade { width: 100%; }
+  .postal-identity-brand { display: none; }
+  .postal-ribbons { width: 150px; height: 70px; bottom: 0; left: 0; opacity: .65; }
+  .attendance-stage > .postal-ribbons-right { width: 150px; }
+}

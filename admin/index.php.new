@@ -1,0 +1,190 @@
+<?php
+  session_start();
+  if(isset($_SESSION['admin'])){
+    header('location:home.php');
+  }
+?>
+<?php include 'includes/header.php'; ?>
+<body class="hold-transition login-page">
+<style>
+    body.login-page {
+      background: #c6ced4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .login-box {
+      width: 440px;
+      max-width: 90vw;
+      margin: 0 auto;
+    }
+    .login-logo {
+      display: block;
+      text-align: center;
+      color: #0c2d58;
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      margin-bottom: 24px;
+      text-shadow: none;
+    }
+    .login-box-body {
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(17, 67, 118, 0.12);
+      border-radius: 0;
+      box-shadow: none;
+      padding: 18px 26px 16px;
+    }
+    .login-box-msg {
+      text-align: center;
+      font-size: 18px;
+      color: #4b5d73;
+      margin: 0 0 18px;
+      font-weight: 400;
+    }
+    .login-form-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .login-field {
+      position: relative;
+      margin: 0;
+    }
+    .login-field .form-control {
+      height: 42px;
+      border: 2px solid #4a8ac1;
+      border-radius: 8px;
+      background: rgba(255,255,255,.85);
+      color: #2c3d4f;
+      font-size: 18px;
+      padding: 10px 42px 10px 44px;
+      box-shadow: none;
+    }
+    .login-field .glyphicon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6f7d8d;
+      font-size: 20px;
+    }
+    .login-field .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: none;
+      outline: none;
+    }
+    .login-submit {
+      width: 100%;
+      height: 42px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #0d5ea8, #0d4c8a);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 6px;
+      box-shadow: none;
+    }
+    .login-submit:hover,
+    .login-submit:focus {
+      background: linear-gradient(180deg, #0d5ea8, #0b4679);
+      color: #fff;
+    }
+    .login-errors {
+      margin-top: 16px;
+    }
+    .callout-danger {
+      background: rgba(255,255,255,.7);
+      border-color: #d9534f;
+      color: #a94442;
+      font-weight: 600;
+    }
+    .main-footer {
+      background: transparent;
+      color: #0c2d58;
+      text-align: center;
+      margin-left: 0 !important;
+      width: 100%;
+      border-top: 1px solid rgba(12,45,88,.2);
+      padding-top: 18px;
+      padding-bottom: 16px;
+      margin-top: 30px;
+    }
+    .main-footer .pull-right { float: none !important; }
+    .main-footer strong,
+    .main-footer a,
+    .main-footer b {
+      color: #0c2d58;
+      font-weight: 700;
+    }
+    .main-footer strong {
+      display: block;
+      margin-top: 4px;
+    }
+    .main-footer .pull-right {
+      display: inline-block;
+      margin: 0 0 6px;
+    }
+    @media (max-width: 767px) {
+      body.login-page {
+        padding-top: 20px;
+      }
+      .login-logo {
+        font-size: 40px;
+      }
+    }
+  </style>
+<div class="login-box">
+  <div class="login-logo">
+    <div>Ingreso</div>
+    <div>Administrador</div>
+  </div>
+
+  <div class="login-box-body">
+    <p class="login-box-msg">Ingresa para iniciar tu sesión</p>
+
+    <form action="login.php" method="POST" class="login-form-wrap">
+      <div class="form-group has-feedback login-field">
+        <input type="text" class="form-control" name="username" placeholder="Ingrese el nombre de usuario" required autofocus>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback login-field">
+        <input type="password" class="form-control" name="password" placeholder="Ingrese contraseña de usuario" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block btn-flat login-submit" name="login"><i class="fa fa-sign-in"></i> Ingresar</button>
+    </form>
+  </div>
+  <?php
+    if(isset($_SESSION['error'])){
+      echo "
+        <div class='callout callout-danger text-center mt20 login-errors'>
+          <p>".$_SESSION['error']."</p>
+        </div>
+      ";
+      unset($_SESSION['error']);
+    }
+  ?>
+</div>
+
+<?php include 'includes/scripts.php' ?>
+</body>
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Hecho por:
+      <a href="https://www.linkedin.com/in/marco-antonio-espinoza-rojas-617539256/">Marco Espinoza</a>,
+      <a href="#">Alexandra Quintanilla</a> y
+      <a href="#">Leonardo Doria Medina</a> By
+      <a href="https://www.correos.gob.bo">Agencia Boliviana de Correos</a>
+    </b>
+  </div>
+  <strong>&copy; <?php echo date('Y'); ?> Control de Asistencia y Sistema de Nómina</strong>
+</footer>
+</html>

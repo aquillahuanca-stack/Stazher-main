@@ -1,0 +1,12 @@
+# Configuración privada
+.env
+.env.*
+!.env.example
+
+# Archivos temporales
+tmp/*
+!tmp/.gitkeep
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
