@@ -96,7 +96,7 @@ $attendanceSql = "
         (" . attendanceSecondsSql('a') . ") / 3600 AS num_hr
     FROM attendance a
     WHERE a.employee_id = ? AND a.date BETWEEN ? AND ?
-    ORDER BY a.date DESC, a.time_in DESC
+    ORDER BY a.date ASC, a.time_in ASC
 ";
 
 $attendanceStmt = $conn->prepare($attendanceSql);
