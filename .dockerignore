@@ -1,0 +1,11 @@
+.git
+.env
+.vscode
+tmp
+complete_schema.php
+database_migrate.php
+database_status.php
+repair_admin.php
+replace_database_once.php
+restore_structure.php
+Encuesta_Pucarani_transcrita.docx
