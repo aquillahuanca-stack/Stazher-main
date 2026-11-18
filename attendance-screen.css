@@ -76,3 +76,24 @@ body.login-page { margin: 0; min-height: 100vh; min-height: 100dvh; height: auto
   .postal-ribbons { width: 150px; height: 70px; bottom: 0; left: 0; opacity: .65; }
   .attendance-stage > .postal-ribbons-right { width: 150px; }
 }
+
+/* Adaptación final: el formulario conserva su centro visual en pantallas
+   intermedias y nunca obliga al navegador a recortar la página. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .attendance-stage { padding-left: 0; }
+}
+
+@media (max-width: 760px) {
+  body.login-page { background-attachment: scroll; }
+  .attendance-stage { align-items: flex-start; padding: 14px 0; }
+  .login-box { width: min(100% - 24px, 460px); margin: 0 auto; padding: 0; }
+}
+
+@media (max-width: 360px) {
+  .login-box-body { padding: 18px 16px 20px; }
+  .attendance-brand { width: 145px; }
+  .login-box-msg { font-size: 21px; }
+  #time { font-size: clamp(31px, 11vw, 38px); letter-spacing: 1px; }
+  .attendance-action { min-height: 58px; font-size: 9px; }
+  .main-footer { padding-right: 12px; padding-left: 12px; }
+}
