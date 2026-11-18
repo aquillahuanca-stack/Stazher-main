@@ -13,7 +13,7 @@ unset($_SESSION['error']);
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Acceso administrador | Gestión de Pasantes</title>
-  <link rel="icon" href="../images/Logo.jpeg" type="image/jpeg">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon-correos.svg">
   <link rel="stylesheet" href="css/admin-login.css?v=<?php echo filemtime(__DIR__ . '/css/admin-login.css'); ?>">
 </head>
 <body>

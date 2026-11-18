@@ -61,6 +61,9 @@ try {
     $output['message'] = $exception->getMessage();
 } catch (mysqli_sql_exception $exception) {
     if ($transaction) { $conn->rollback(); }
-    $output['message'] = 'No se pudo guardar la marcación. Intente nuevamente.';
+    // La restricción única de la base de datos evita duplicados incluso ante dos clics simultáneos.
+    $output['message'] = ((int) $exception->getCode() === 1062)
+        ? 'Ya existe una marcación para hoy. No se registró un duplicado.'
+        : 'No se pudo guardar la marcación. Intente nuevamente.';
 }
 echo json_encode($output, JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
