@@ -5,12 +5,12 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title"><b>Agregar Asistencia</b></h4>
+				<h4 class="modal-title"><b>Registrar asistencia manual</b></h4>
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal" method="POST" action="attendance_add.php"><?php echo csrfField(); ?>
 					<div class="form-group">
-						<label for="employee" class="col-sm-3 control-label">ID Pasante</label>
+						<label for="employee" class="col-sm-3 control-label">Código del pasante</label>
 
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="employee" name="employee" required>

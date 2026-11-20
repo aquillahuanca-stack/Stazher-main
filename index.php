@@ -64,13 +64,18 @@
           return;
         }
         var attendance = $(this).serialize();
+        var shouldReload = false;
         $('.attendance-action').prop('disabled', true);
         $.ajax({
           type: 'POST',
           url: 'attendance.php',
           data: attendance,
           dataType: 'json',
-          complete: function() { $('.attendance-action').prop('disabled', false); },
+          complete: function() {
+            if (!shouldReload) {
+              $('.attendance-action').prop('disabled', false);
+            }
+          },
           error: function() {
             $('.alert').hide();
             $('.alert-danger').show().find('.message').text('No se pudo confirmar la marcación. Revise la conexión e intente nuevamente.');
@@ -86,6 +91,12 @@
               $('.message').text(response.message);
               $('#employee').val('');
               $('#attendance-status').val('');
+              // Conserva el mensaje de confirmación y después deja la pantalla lista para la siguiente marcación.
+              shouldReload = true;
+              $('.attendance-action').prop('disabled', true);
+              window.setTimeout(function() {
+                window.location.reload();
+              }, 1500);
             }
           }
         });

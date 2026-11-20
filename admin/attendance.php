@@ -73,6 +73,21 @@
             color: #5d6b7a;
             font-size: 14px;
           }
+          .attendance-header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 14px;
+            margin-left: auto;
+          }
+          .attendance-manual-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            text-decoration: none;
+            white-space: nowrap;
+          }
           .attendance-filter-panel {
             background: #ffffff;
             border: 1px solid #dfe7f0;
@@ -351,6 +366,9 @@
             display: none;
           }
           @media (max-width: 767px) {
+            .attendance-topbar { align-items: flex-start; }
+            .attendance-header-actions { align-items: flex-end; flex-direction: column-reverse; gap: 8px; }
+            .attendance-manual-button { padding: 0 12px; font-size: 12px; }
             .attendance-filter-row { display: grid; grid-template-columns: 1fr; }
             .attendance-search input { width: 100%; }
             .attendance-table-tools { display: block; }
@@ -370,8 +388,13 @@
                 <p>Historial de todos los pasantes con registros presentes u omisiones. Filtra por fecha, nombre o ID.</p>
               </div>
             </div>
-            <div style="font-size:12px; color:#4f627a; font-weight:700; white-space:nowrap; margin-left:auto;">
-              <i class="fa fa-home" style="margin-right:6px;"></i> Inicio <span style="color:#8aa0b7;">›</span> Asistencia
+            <div class="attendance-header-actions">
+              <button type="button" class="attendance-btn primary attendance-manual-button" data-toggle="modal" data-target="#addnew">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Registrar asistencia manual
+              </button>
+              <div style="font-size:12px; color:#4f627a; font-weight:700; white-space:nowrap;">
+                <i class="fa fa-home" style="margin-right:6px;"></i> Inicio <span style="color:#8aa0b7;">›</span> Asistencia
+              </div>
             </div>
           </div>
 

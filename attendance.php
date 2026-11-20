@@ -17,9 +17,13 @@ try {
     $stmt = $conn->prepare('SELECT e.id, e.firstname, e.lastname, s.time_in AS scheduled_in, s.time_out AS scheduled_out FROM employees e LEFT JOIN schedules s ON s.id = e.schedule_id WHERE e.employee_id = ? FOR UPDATE');
     $stmt->bind_param('s', $employeeCode);
     $stmt->execute();
-    $employee = $stmt->get_result()->fetch_assoc();
+    $employees = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     $stmt->close();
-    if (!$employee) { throw new InvalidArgumentException('Código de pasante no encontrado.'); }
+    if (count($employees) === 0) { throw new InvalidArgumentException('Código de pasante no encontrado.'); }
+    if (count($employees) > 1) {
+        throw new RuntimeException('El código del pasante está duplicado. Comuníquese con el administrador para corregirlo antes de marcar asistencia.');
+    }
+    $employee = $employees[0];
     $id = (int) $employee['id'];
     $now = new DateTimeImmutable('now', new DateTimeZone('America/La_Paz'));
     $date = $now->format('Y-m-d');

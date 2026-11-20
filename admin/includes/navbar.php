@@ -29,6 +29,9 @@ try {
         <li class="dropdown reports-dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart"></i><span>Reportes</span><i class="fa fa-angle-down nav-caret"></i></a><ul class="dropdown-menu"><li><a href="employee_print.php" target="_blank" rel="noopener">Lista de pasantes</a></li><li><a href="attendance_print.php" target="_blank" rel="noopener">Reporte de asistencia</a></li></ul></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i><span>Configuración</span><i class="fa fa-angle-down nav-caret"></i></a><ul class="dropdown-menu"><li><a href="schedule.php">Horarios</a></li><li><a href="position.php">Áreas de trabajo</a></li><li><a href="area.php">Unidades organizacionales</a></li><li><a href="institution.php">Instituciones</a></li><li><a href="career.php">Carreras</a></li><li><a href="modality.php">Modalidades</a></li></ul></li>
       </ul>
+      <a class="admin-marking-link" href="../index.php" title="Abrir página de marcación" onclick="window.location.replace(this.href); return false;">
+        <i class="fa fa-clock-o" aria-hidden="true"></i><span>Marcación</span>
+      </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="notifications-menu">
@@ -94,6 +97,39 @@ try {
     </nav>
   </header>
   <style>
+    .admin-marking-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-width: 136px;
+      height: 34px;
+      margin: 8px 18px 8px auto;
+      padding: 0 14px;
+      border: 1px solid #f1c642;
+      border-radius: 5px;
+      background: #1a5790;
+      color: #fff !important;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 34px;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .admin-marking-link:hover,
+    .admin-marking-link:focus {
+      border-color: #ffe170;
+      background: #246aa8;
+      color: #fff !important;
+      outline: none;
+      transform: translateY(-1px);
+    }
+    .admin-marking-link:focus-visible {
+      outline: 2px solid #f4c542;
+      outline-offset: 2px;
+    }
+    .admin-marking-link i { font-size: 15px; }
     .navbar-custom-menu .notifications-menu > a.notification-trigger {
       position: relative;
       display: flex;
@@ -204,6 +240,12 @@ try {
       text-align: center;
     }
     @media (max-width: 767px) {
+      .admin-marking-link {
+        min-width: auto;
+        margin-right: 6px;
+        padding: 0 10px;
+      }
+      .admin-marking-link span { display: none; }
       .notification-dropdown { right: -55px; }
     }
     .navbar-custom-menu > .navbar-nav {
